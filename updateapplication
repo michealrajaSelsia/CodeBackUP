@@ -1,0 +1,58 @@
+
+ALTER Procedure [dbo].[UpdateApplication](@Application1 [TypeApplication] readonly)
+AS 
+Begin
+
+insert into Application select * from @Application1
+
+--IF exists(select * from Application where ApplicationID <>(select ApplicationID from @Application1))
+--Begin
+
+--Insert into Application(ApplicationID,Course ,Fname ,Lname,Fullname,DOB,Gender,FatherName,MotherName,Religion,Nationality,
+--Email,MobileNo,P_Address,C_Address,SSLCSchoolName,SSLCMark,SSLCPercentage,HSCSchoolName,HSCMark,HSCPercentage,
+--UGSchoolName,UGMark,UGPercentage,PGSchoolName,PGMark,PGPercentage,CreateOn,isActive)
+
+--select
+--l.ApplicationID,l.Course,l.Fname ,l.Lname ,l.Fullname,l.DOB,l.Gender,l.FatherName,l.MotherName,l.Religion,l.Nationality,
+--l.Email,l.MobileNo,l.P_Address,l.C_Address,l.SSLCSchoolName,l.SSLCMark,l.SSLCPercentage,l.HSCSchoolName,l.HSCMark,
+--l.HSCPercentage,l.UGSchoolName,l.UGMark,l.UGPercentage,l.PGSchoolName,l.PGMark,l.PGPercentage,l.CreateOn,l.isActive	
+--from Application as l
+-- left outer join @Application1 as r on l.ApplicationID=r.ApplicationID 
+--END
+
+--IF exists(select * from Application where ApplicationID =(select ApplicationID from @Application1))
+--Begin
+--update a set 
+--a.ApplicationID=b.ApplicationID,
+--a.Course=b.Course,
+--a.Fname=b.Fname,
+--a.Lname=b.Lname,
+--a.Fullname=b.Fullname,
+--a.DOB=b.DOB,
+--a.Gender=b.Gender,
+--a.FatherName=b.FatherName,
+--a.MotherName=b.MotherName,
+--a.Religion=b.Religion,
+--a.Nationality =b.Nationality,
+--a.Email=b.Email,
+--a.MobileNo=b.MobileNo,
+--a.P_Address=b.P_Address,
+--a.C_Address=b.C_Address,
+--a.SSLCSchoolName=b.SSLCSchoolName,
+--a.SSLCMark=b.SSLCMark,
+--a.SSLCPercentage=b.SSLCPercentage,
+--a.HSCSchoolName=b.HSCSchoolName ,
+--a.HSCMark=b.HSCMark,
+--a.HSCPercentage=b.HSCPercentage ,
+--a.UGSchoolName=b.UGSchoolName,
+--a.UGMark=b.UGMark,
+--a.UGPercentage=b.UGPercentage,
+--a.PGSchoolName=b.PGSchoolName,
+--a.PGMark=b.PGMark,
+--a.PGPercentage=b.PGPercentage,
+--a.CreateOn=b.CreateOn,
+--a.isActive=b.isActive from application as a 
+--inner join @Application1 as b on a.ApplicationID = b.ApplicationID
+--End
+End
+
